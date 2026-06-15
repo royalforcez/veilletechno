@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(sudo apt-get install -y nginx)",
+      "Bash(systemctl is-active *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost/top)",
+      "Read(//etc/nginx/sites-enabled/**)",
+      "Read(//etc/nginx/sites-available/**)",
+      "Read(//var/www/veille-techno/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://192.168.1.26/top)",
+      "Bash(sudo nginx *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://192.168.1.26/)"
+    ]
+  }
+}
