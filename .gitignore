@@ -27,6 +27,8 @@ __pycache__/
 .npm/
 .copilot/
 .vscode-server/
+.claude/settings.local.json
+frontend/.claude/
 .claude/cache/
 .claude/projects/
 .claude/sessions/
