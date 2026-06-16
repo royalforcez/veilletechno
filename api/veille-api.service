@@ -8,7 +8,6 @@ Type=simple
 User=veilletechno
 WorkingDirectory=/home/veilletechno
 ExecStart=/usr/bin/python3 /home/veilletechno/api/app.py
-# Port d'écoute (modifiable). Tu peux aussi surcharger DB_HOST, DB_USER, etc.
 Environment=API_PORT=3000
 Restart=on-failure
 RestartSec=3

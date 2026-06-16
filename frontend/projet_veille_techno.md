@@ -54,8 +54,6 @@ ou un rang, plus `tags`).
 - Le dev server front tourne sur la VM ; le port est forwardé vers le navigateur local.
 
 ## Stack front
-<!-- À compléter selon le choix retenu : React (Vite) / Vue / HTML-CSS-JS simple -->
-<!-- Démarrage prévu avec des données simulées (mock) puis bascule sur la vraie API. -->
 
 ## Conventions
 - Travailler contre l'API (ou un mock JSON) pour ne pas être bloqué par l'équipe.

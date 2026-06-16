@@ -1,25 +1,12 @@
-# Dépendances
 node_modules/
-
-# Build front (régénérable via `npm run build`)
 dist/
 *.tsbuildinfo
-
-# Variables d'environnement & secrets
 .env
 *.local
-
-# Python
 __pycache__/
 *.pyc
-
-# Logs
 *.log
-
-# Éditeurs
 *.swp
-
-# Le dépôt vit dans le home : ne jamais committer ces dossiers/fichiers
 .ssh/
 .cache/
 .config/

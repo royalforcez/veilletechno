@@ -33,9 +33,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
       await navigator.clipboard.writeText(lien)
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
-    } catch {
-      // clipboard non disponible
-    }
+    } catch {}
   }
 
   function openArticle() {
@@ -57,7 +55,6 @@ export default function ArticleCard({ article }: ArticleCardProps) {
         hasLink ? 'cursor-pointer' : ''
       }`}
     >
-      {/* En-tête : titre + score */}
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-start gap-2 flex-1 min-w-0">
           {is_top && (
@@ -88,7 +85,6 @@ export default function ArticleCard({ article }: ArticleCardProps) {
         <ScoreBadge score={score} />
       </div>
 
-      {/* Résumé avec expand/collapse */}
       <div>
         <p
           className={`text-gray-500 text-sm leading-relaxed ${!expanded && longResume ? 'line-clamp-2' : ''}`}
@@ -108,7 +104,6 @@ export default function ArticleCard({ article }: ArticleCardProps) {
         )}
       </div>
 
-      {/* Tags */}
       {tags && tags.length > 0 && (
         <div className="flex flex-wrap gap-1">
           {tags.map((tag) => (
@@ -119,7 +114,6 @@ export default function ArticleCard({ article }: ArticleCardProps) {
         </div>
       )}
 
-      {/* Pied de carte : source, date, copier */}
       <div className="flex items-center justify-between text-xs text-gray-400 mt-auto pt-2 border-t border-gray-50">
         <div className="flex items-center gap-3">
           <span className="font-medium text-gray-500">{source}</span>
