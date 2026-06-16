@@ -27,7 +27,8 @@ export default function ArticleCard({ article }: ArticleCardProps) {
   const longResume = resume.length > 140
   const hasLink = lien && lien !== '#'
 
-  async function copyLink() {
+  async function copyLink(e: React.MouseEvent) {
+    e.stopPropagation()
     try {
       await navigator.clipboard.writeText(lien)
       setCopied(true)
@@ -37,9 +38,24 @@ export default function ArticleCard({ article }: ArticleCardProps) {
     }
   }
 
+  function openArticle() {
+    if (hasLink) window.open(lien, '_blank', 'noopener,noreferrer')
+  }
+
   return (
     <div
-      className={`bg-white rounded-xl shadow-sm border border-gray-100 border-l-4 ${border} p-4 flex flex-col gap-3 hover:shadow-md transition-shadow`}
+      onClick={openArticle}
+      role={hasLink ? 'link' : undefined}
+      tabIndex={hasLink ? 0 : undefined}
+      onKeyDown={(e) => {
+        if (hasLink && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault()
+          openArticle()
+        }
+      }}
+      className={`bg-white rounded-xl shadow-sm border border-gray-100 border-l-4 ${border} p-4 flex flex-col gap-3 hover:shadow-md transition-shadow ${
+        hasLink ? 'cursor-pointer' : ''
+      }`}
     >
       {/* En-tête : titre + score */}
       <div className="flex items-start justify-between gap-3">
@@ -60,6 +76,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
               href={lien}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
               className="font-semibold text-gray-900 hover:text-blue-600 transition-colors line-clamp-2 leading-snug"
             >
               {titre}
@@ -80,7 +97,10 @@ export default function ArticleCard({ article }: ArticleCardProps) {
         </p>
         {longResume && (
           <button
-            onClick={() => setExpanded((v) => !v)}
+            onClick={(e) => {
+              e.stopPropagation()
+              setExpanded((v) => !v)
+            }}
             className="text-xs text-blue-500 hover:text-blue-700 mt-1 transition-colors"
           >
             {expanded ? 'Réduire' : 'Lire la suite'}
