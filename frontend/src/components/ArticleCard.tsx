@@ -125,7 +125,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
             className="hover:text-gray-600 transition-colors"
             title="Copier le lien"
           >
-            {copied ? '✓ Copié' : 'Copier'}
+            {copied ? 'Copié' : 'Copier'}
           </button>
         )}
       </div>

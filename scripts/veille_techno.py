@@ -142,23 +142,23 @@ def sauvegarder_en_bdd(titre, source, date_article, resume, lien, score, is_top,
         conn.commit()
 
         if cursor.rowcount > 0:
-            print(f"✅ Indexé en BDD (Debian) [score {score}] : {titre}")
+            print(f"Indexé en BDD (Debian) [score {score}] : {titre}")
         else:
-            print(f"⏭️ Entrée déjà existante (Doublon) : {titre}")
+            print(f"Entrée déjà existante (Doublon) : {titre}")
 
         cursor.close()
         conn.close()
     except Exception as e:
-        print(f"❌ Échec de la journalisation en BDD : {e}")
+        print(f"Echec de la journalisation en BDD : {e}")
 
 if __name__ == "__main__":
-    print("🚀 Initialisation du service de veille technologique...")
+    print("Initialisation du service de veille technologique...")
     for url in RSS_FEEDS:
         print(f"\nTraitement du flux : {url}")
         try:
             flux = feedparser.parse(url)
             if flux.bozo:
-                print(f"⚠️ Flux invalide ou inaccessible : {url}")
+                print(f"Flux invalide ou inaccessible : {url}")
                 continue
 
             domaine = urlparse(url).netloc
@@ -184,6 +184,6 @@ if __name__ == "__main__":
                         analyse["score"], analyse["is_top"], analyse["tags"],
                     )
                 else:
-                    print(f"🗑️ Écarté ({analyse['tri']}) : {titre}")
+                    print(f"Écarté ({analyse['tri']}) : {titre}")
         except Exception as e:
-            print(f"❌ Erreur lors du traitement du flux {url} : {e}")
+            print(f"Erreur lors du traitement du flux {url} : {e}")

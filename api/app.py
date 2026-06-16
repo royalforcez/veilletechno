@@ -103,10 +103,10 @@ class Handler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     serveur = ThreadingHTTPServer(("0.0.0.0", API_PORT), Handler)
-    print(f"🚀 API veille technologique en écoute sur http://0.0.0.0:{API_PORT}")
+    print(f"API veille technologique en écoute sur http://0.0.0.0:{API_PORT}")
     print(f"   GET /articles  ·  GET /articles/top  ·  GET /health")
     try:
         serveur.serve_forever()
     except KeyboardInterrupt:
-        print("\n⏹️  Arrêt de l'API.")
+        print("\nArrêt de l'API.")
         serveur.shutdown()
